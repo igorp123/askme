@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :questions
 
+  before_validation :downcase_username
+
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 
@@ -18,6 +20,10 @@ class User < ApplicationRecord
   validates :password, confirmation: true
 
   before_save :encrypt_password
+
+  def downcase_username
+    username.downcase!
+  end
 
   def encrypt_password
     if password.present?
