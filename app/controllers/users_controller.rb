@@ -6,11 +6,11 @@ class UsersController < ApplicationController
         name: 'Igor',
         username: 'igor',
         avatar_url: 'https://pp.userapi.com/c844418/v844418450/92b72/2_U9SbJGuxM.jpg?ava=1'
-        ),
+      ),
       User.new(
         id: 2,
-        name: 'Misha',
-        username: 'mish'
+        name: 'Alexey',
+        username: 'lexa'
       )
     ]
   end
@@ -30,7 +30,8 @@ class UsersController < ApplicationController
 
     @questions = [
       Question.new(text: 'Как дела?', created_at: Date.parse('28.11.2018')),
-      Question.new(text: 'Как жизнь?', created_at: Date.parse('28.11.2018')),
+      Question.new(text: 'Откуда ты?', created_at: Date.parse('28.11.2018')),
+      Question.new(text: 'Сколько тебе лет?', created_at: Date.parse('28.11.2018'))
     ]
 
     @new_question = Question.new()
