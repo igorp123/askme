@@ -10,6 +10,8 @@
           </div>
     <% end %>
 
+    <%= f.hidden_field :user_id %>
+
     <div class="form-field">
       <%= f.label :text, 'Вопрос', class: 'form-label' %>
       <%= f.text_field :text, class: 'form-textarea' %>

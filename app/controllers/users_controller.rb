@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      login_user (@user.id)
+
       redirect_to root_url, notice: 'Пользователь зарегистрирован!'
     else
       render 'new'
@@ -40,6 +42,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authorize_user
+    reject_user unless @user == current_user
+  end
+
   def user_params
     params.require(:user).permit(:email, :password,:password_confirmation, :name,
                                  :username, :avatar_url)

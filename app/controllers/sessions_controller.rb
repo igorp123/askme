@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.authenticate(params[:email], params[:password])
 
     if @user.present?
-      session[:user_id] = @user.id
+      login_user (@user.id)
 
       redirect_to root_url, notice: 'Вы успешно залогинились'
     else
