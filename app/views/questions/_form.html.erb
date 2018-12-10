@@ -14,18 +14,20 @@
 
     <div class="form-field">
       <%= f.label :text, 'Вопрос', class: 'form-label' %>
-      <%= f.text_field :text, class: 'form-textarea' %>
+      <%= f.text_area :text, class: 'form-textarea' %>
     </div>
 
     <% if current_user.present? && current_user == @question.user %>
       <div class="form-field">
         <%= f.label :answer, 'Ответ', class: 'form-label' %>
-        <%= f.text_field :answer, class: 'form-textarea' %>
+        <%= f.text_area :answer, class: 'form-textarea' %>
       </div>
     <% end %>
 
     <div class="form-action">
       <%= f.submit 'Сохранить', class: 'button button-small button-dark' %>
+      или
+      <%= link_to "вернуться", user_path(@question.user) %>
     </div>
   <% end %>
 </div>
