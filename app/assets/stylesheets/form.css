@@ -34,3 +34,10 @@
   list-style: none;
   margin-bottom: 10px;
 }
+
+.form-color-field {
+  width: 30%;
+  height: 2.5em;
+  background-color: #fff;
+  padding: 5px;
+}

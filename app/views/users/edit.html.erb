@@ -37,6 +37,11 @@
           <%= f.label :password_confirmation, 'Пароль еще раз', class: 'form-label' %>
           <%= f.password_field :password_confirmation, class: 'form-text-field' %>
         </div>
+
+        <div class="form-field">
+          <%= f.label :header_color, 'Цвет фона', class: 'form-label' %>
+          <%= color_field('user', "header_color", class: 'form-text-field form-color-field') %>
+        </div>
         
         <div class="form-action">
           <%= f.submit 'Сохранить', class: 'button button-small button-dark' %>

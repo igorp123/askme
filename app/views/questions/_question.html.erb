@@ -22,7 +22,7 @@
     <div class="question-actions">
       <%= link_to fa_icon(action_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-0'), question_path(question), method: :delete,
-                  data: {confirm: 'Точно удалить вопрос?'%>
+                  data: {confirm: 'Точно удалить вопрос?'} %>
     </div>
   <% end %>  
 </div>
