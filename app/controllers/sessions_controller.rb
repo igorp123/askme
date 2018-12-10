@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:email], params[:password])
 
     if @user.present?
-      login_user (@user.id)
+      login_user
 
       redirect_to root_url, notice: 'Вы успешно залогинились'
     else

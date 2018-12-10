@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: 'Вам сюда нельзя!'
   end
 
-  def login_user(id)
-    session[:user_id] = id
+  def login_user
+    session[:user_id] = @user.id
   end
 end

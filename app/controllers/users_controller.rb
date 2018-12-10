@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      login_user (@user.id)
+      login_user
 
       redirect_to root_url, notice: 'Пользователь зарегистрирован!'
     else
@@ -39,6 +39,10 @@ class UsersController < ApplicationController
     @questions = @user.questions.order(created_at: :desc)
 
     @new_question = @user.questions.build
+
+    @questions_count = @questions.count
+    @answers_count = @questions.where.not(answer: nil).count
+    @unanswered_count = @questions_count - @answers_count
   end
 
   def destroy
