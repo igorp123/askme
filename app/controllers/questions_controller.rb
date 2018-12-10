@@ -25,12 +25,13 @@ class QuestionsController < ApplicationController
 
   def destroy
     user = @question.user
+
     @question.destroy
+
     redirect_to user_path(user), notice: 'Вопрос удален.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def load_question
       @question = Question.find(params[:id])
     end
@@ -39,7 +40,6 @@ class QuestionsController < ApplicationController
       reject_user unless @question.user == current_user
     end
 
-    # Only allow a trusted parameter "white list" through.
     def question_params
       if current_user.present? && params[:question][:user_id].to_i == current_user.id
         params.require(:question).permit(:user_id, :text, :answer)

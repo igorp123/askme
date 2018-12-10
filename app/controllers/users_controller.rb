@@ -41,6 +41,16 @@ class UsersController < ApplicationController
     @new_question = @user.questions.build
   end
 
+  def destroy
+    if @user.destroy
+      redirect_to root_url, notice: 'Аккаунт удален!'
+    else
+      flash.now[:error]
+
+      redirect_to user_path, notice: 'Не удалось удалить аккаунт!'
+    end
+  end
+
   private
 
   def authorize_user
