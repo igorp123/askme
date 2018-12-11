@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+     @user.header_color ||= "#005a55"
   end
 
   def update
