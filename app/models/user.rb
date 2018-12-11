@@ -4,7 +4,7 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  has_many :questions, dependent: :nullify
+  has_many :questions, dependent: :destroy
 
   before_validation :downcase_username
 
