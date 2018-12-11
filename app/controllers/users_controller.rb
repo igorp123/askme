@@ -13,7 +13,10 @@ class UsersController < ApplicationController
 
   def create
     redirect_to root_url, alert: "Вы уже залогинены!" if current_user.present?
+
     @user = User.new(user_params)
+
+    @user.header_color = "#005A55"
 
     if @user.save
       login_user(@user.id)
@@ -25,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-     @user.header_color ||= "#005a55"
   end
 
   def update
