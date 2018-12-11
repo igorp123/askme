@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   validates :email, format: { with: /\A[\w\.-]+@([\w\.-]+)\z/i }
   validates :username, format: { with: /\A[\w]+\z/ }, length: { maximum: 40 }
-  validates :header_color, format: { with: /\A#[\w]+\z/}, length: { maximum: 7 }
+  validates :header_color, length: { maximum: 7 }
 
   attr_accessor :password
 
