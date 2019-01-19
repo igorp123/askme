@@ -10,4 +10,10 @@
       </div>
     </div>
   <% end %>
+
+  <div class="hashtags-list buffer-both">
+    <% @hashtags.each do |hashtag| %>
+      <%= link_to "##{hashtag.name}", hashtag_path(hashtag.name) %>
+    <% end %>
+  </div>
 </div>

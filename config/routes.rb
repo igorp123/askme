@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :users #except: [:destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :questions, except: [:show, :new, :index]
+  resources :hashtags, only:[:show], param: :name
+  #get '/hashtags/:name' => 'hashtags#show'
 end
